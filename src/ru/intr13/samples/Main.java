@@ -1,4 +1,4 @@
-package com.company;
+package ru.intr13.samples;
 
 import java.util.Arrays;
 import java.util.concurrent.BrokenBarrierException;
