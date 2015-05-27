@@ -17,7 +17,7 @@ public class Main {
                 public void run() {
                     try {
                         barrier.await();
-                        Thread.sleep(100);
+//                        Thread.sleep(1);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -33,7 +33,7 @@ public class Main {
                 public void run() {
                     try {
                         barrier.await();
-                        Thread.sleep(100);
+//                        Thread.sleep(1);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -50,7 +50,6 @@ public class Main {
             });
             t1.start();
             t2.start();
-            Thread.sleep(100);
             t1.join();
             t2.join();
         }
