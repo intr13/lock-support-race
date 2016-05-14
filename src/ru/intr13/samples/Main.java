@@ -18,6 +18,7 @@ public class Main {
                 public void run() {
                     System.out.println("t1: start");
                     LockSupport.park();
+                    System.out.println("t1: unpark");
                     while (flag.get()) {
                         System.out.println("t1: spurious wakeup");
                         System.exit(0);
@@ -37,6 +38,7 @@ public class Main {
                 public void run() {
                     System.out.println("t2: start");
                     LockSupport.park();
+                    System.out.println("t2: unpark");
                     while (flag.get()) {
                         System.out.println("t2: spurious wakeup");
                         System.exit(0);
@@ -60,8 +62,10 @@ public class Main {
             }
             System.out.println("unpark");
             flag.set(false);
-            LockSupport.unpark(t1);
             LockSupport.unpark(t2);
+            System.out.println("unpark t2");
+            LockSupport.unpark(t1);
+            System.out.println("unpark t1");
             System.out.println("join");
             t1.join();
             t2.join();
